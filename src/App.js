@@ -1,29 +1,28 @@
-import React, { Fragment } from 'react';
-// styled-components 创建的 全局样式
-import { GlobalStyle } from './style';
-import { GlobalIconFontStyle } from '../src/assets/css/iconfont';
-//  引入 Provider
-import { Provider } from 'react-redux';
-// 引入总的 store
-import store from './store';
-// 不同页面组件
-import Home from './views/home';
-// 路由
-// 如何使用 https://reacttraining.com/react-router/web/guides/quick-start
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React from 'react'
+// 引入全局样式
+import {GlobalStyle} from './style'
+import {GlobalIconFontStyle} from './assets/css/iconfont'
+// 引入 Provider 
+import {Provider} from 'react-redux'
+// 引入 store 传入到 Provider
+import store from './sotre'
+// 引入路由
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+// 引入组件
+import Home from './components/content/header'
 function App() {
   return (
-    <Fragment>
-      {/* 这里引入style */}
-      <GlobalStyle />
-      <GlobalIconFontStyle />
+    <div className="app">
+      <GlobalStyle/>
+      <GlobalIconFontStyle/>
       <Provider store={store}>
         <Router>
-          <Route path='/' component={Home}></Route>
+          <Route component={Home} path="/" exact   />
         </Router>
       </Provider>
-    </Fragment>
-  );
+      
+    </div>
+  )
 }
 
-export default App;
+export default App
